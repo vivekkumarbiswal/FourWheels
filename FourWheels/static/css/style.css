@@ -4315,14 +4315,14 @@ footer {
 }
 
 /** Counters start **/
-.counters {
+/* .counters {
     padding: 80px 0 50px;
     background: url(../img/car-6.jpg);
     z-index: 0;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 .counter-box {
     text-align: center;
