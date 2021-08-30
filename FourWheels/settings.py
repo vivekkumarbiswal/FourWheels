@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,"templates")
 SECRET_KEY = 'django-insecure-y562*1(5f8nw6g5n^e@mx9@d)8smjx!e&jwv9nf3!g=2za^*ta'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -66,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'FourWheels.urls'
@@ -92,16 +94,19 @@ WSGI_APPLICATION = 'FourWheels.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fourwheels_db',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'fourwheels_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin',
+#         'HOST': 'localhost',
 
-    }
-}
+#     }
+# }
+
+
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:admin@localhost/fourwheels_db')}
 
 
 # Password validation
@@ -170,3 +175,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'im.vivekbiswal@gmail.com'
 EMAIL_HOST_PASSWORD = 'vivek#@1310'
 EMAIL_USE_TLS = True
+
+# Whitenoise settings
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
