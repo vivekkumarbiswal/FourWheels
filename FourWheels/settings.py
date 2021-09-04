@@ -25,7 +25,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,"templates")
 SECRET_KEY = 'django-insecure-y562*1(5f8nw6g5n^e@mx9@d)8smjx!e&jwv9nf3!g=2za^*ta'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['salty-woodland-53276.herokuapp.com','fourwheels.co','www.fourwheels.co']
 
